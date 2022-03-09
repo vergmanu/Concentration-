@@ -1,82 +1,116 @@
 /*----- constants -----*/
- const winCombos = [
-     [0, 13],
-     [1, 15],
-     [2, 9],
-     [3, 12],
-     [4, 10],
-     [5, 14],
-     [6, 11],
-     [7, 8],
- ]
+//  const winCombos = [
+//      [0, 13],
+//      [1, 15],
+//      [2, 9],
+//      [3, 12],
+//      [4, 10],
+//      [5, 14],
+//      [6, 11],
+//      [7, 8],
+//  ]
 
 
 /*----- app's state (variables) -----*/
-//let board, winner
+let board, cardOne, winner
 
 
 /*----- cached element references -----*/
-const divEl = document.querySelector('div')
-
-//const tbodyEl = document.querySelector('tbody')
-//const buttonEl = document.querySelector('button')
+//const divEl = document.querySelector('div')
+const buttonEl = document.querySelector('button')
 
 /*----- event listeners -----*/
-divEl.addEventListener('click', cardClicked)
-
-//tbodyEl.addEventListener('click', handlePlayerClick)
-
-// buttonEl.addEventListener('click', function(evt) {
-//     init()
-// })
+buttonEl.addEventListener('click', function(evt) {
+    init()
+})
 
 /*----- functions -----*/
-function cardClicked(evt) {
-    const target = evt.currentTarget;
-    target.className = target.className.replace('backside', '').trim();
+function shuffle (squaresArray) {
+    let currentIndex = squaresArray.length, randomIndex;
+    while (currentIndex != 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+        [squaresArray[currentIndex], squaresArray[randomIndex]] = [
+            squaresArray[randomIndex], squaresArray[currentIndex]];
+    }
+    return squaresArray;
 }
-// function init() {
-//     board = [null, null, null, null, null, null, null, null, 
-//             null, null, null, null, null, null, null, null,]
-//     }
+let squares = ['pink', 'rust', 'blue', 'green',
+                'yellow', 'teal', 'orange', 'purple',
+                'pink', 'rust', 'blue', 'green',
+                'yellow', 'teal', 'orange', 'purple'];
+shuffle(squares);
+console.log(squares);
+
+function cardClicked(evt) {
+    // clickedCombos.push(evt.target.id)
+    // console.log(clickedCombos)
+const target = evt.currentTarget;
+target.classList.toggle('backside');
+    checkCards(evt); 
+    //target.className = target.className.replace('backside', '');
+}
+
+    const checkCards = (evt) => {
+    const cardOne = evt.target;
+    cardOne.classList.add("flipped");
+    const flippedCards = document.querySelectorAll('.flipped');
+    if(flippedCards.length === 2){
+        if(
+        flippedCards[0].getAttribute("name") === 
+        flippedCards[1].getAttribute("name")
+        ){
+        console.log("match");
+        flippedCards.forEach(card => {
+            card.classList.remove("flipped");
+            card.getElementsByClassName.pointerEvents = "none";
+    } else {
+        console.log ("wrong");
+        flippedCards.forEach(card => {
+            card.classList.remove("flipped");
+        })
+        }
+    }
+};
+
+
+
+
+
+
+//function init() {
+    // board = [null, null, null, null, 
+    //          null, null, null, null, 
+    //          null, null, null, null, 
+    //          null, null, null, null]
+//     cardOne = []
 //     winner = null
 //     render()
 // }
 
-// function render() {
-//     if(winner) {
-        
-//     } 
-
-//     board.forEach(function(square, idx) {
-//         const tdEl = document.getElementById('sq' + idx)
-//         if(square) {
-//             tdEl.innerHTML = `<div style="background: ${ players[square] }"></div>`
-//         } else {
-//             tdEl.innerHTML = ''
-//         }
-//     })
-// }
-
-// function handlePlayerClick(evt) {
-//     const idx = evt.target.id[2]
-//     if(!board[idx] && !winner) {
-//         board[idx] = turn
+//set conditional if no check1 then evt.currentTarget saves element to check1 (toggles to backside)
+// function render () {
+//     if(clickedCombos.length === 2) {
 //         checkWin()
-//         render()
 //     }
-// }
 
+    
+    //if there is one check then current target vs clicked is checked
+    //if match take out
+    //if don't toggle back
+    
+    
+// function checkWinner() {
+//         winCombos.forEach((set) => {
 // function checkWin() {
 //     winCombos.forEach(function(combo) {
-//         if( Math.abs(board[combo[0]] + board[combo[1]] + board[combo[2]]) === 3 ) {
+//         if( Math.abs(board[combo[0]] + board[combo[1]] === 2 ) {
 //             winner = board[combo[0]]
-
-//         }
+//         }  
 //     })
 // }
 
 
 
 /*---- Runs the game -----*/
-//init()
+// init()
