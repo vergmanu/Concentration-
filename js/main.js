@@ -7,7 +7,7 @@ let board, winner
 
 /*----- cached element references -----*/
 const buttonEl = document.querySelector('button')
-const cards = document.querySelectorAll('.square')
+//const cards = document.querySelectorAll('.square')
 const h2El = document.querySelector('h2')
 const divEl = document.getElementById('div')
 
@@ -18,28 +18,23 @@ buttonEl.addEventListener('click', function(evt) {
 
 /*----- functions -----*/
 function init() {
-    render()
+    //reset h2 to 0 to empty string
+    //toggle to backside class
+    //shuffle(); 
 }
 
-function render() {
-
+const cards = document.getElementById('div');
+function shuffle (randomArr) {
+    let currentIndex =randomArr.length, randomIndex;
+    while (currentIndex != 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+        [randomArr[currentIndex], randomArr[randomIndex]] = [
+            randomArr[randomIndex], randomArr[currentIndex]];
+    }
+    return randomArr;
 }
-
-// function shuffle (randomArr) {
-//     let currentIndex =randomArr.length, randomIndex;
-//     while (currentIndex != 0) {
-//         randomIndex = Math.floor(Math.random() * currentIndex);
-//         currentIndex--;
-//         [randomArr[currentIndex], randomArr[randomIndex]] = [
-//             randomArr[randomIndex], randomArr[currentIndex]];
-//     }
-//     return randomArr;
-// }
-// let squares = ['pink', 'rust', 'blue', 'green',
-//                 'yellow', 'teal', 'orange', 'purple',
-//                 'pink', 'rust', 'blue', 'green',
-//                 'yellow', 'teal', 'orange', 'purple'];
-// shuffle(squares);
+    shuffle(cards);
 
 function cardClicked(evt) {
     const target = evt.currentTarget;
@@ -93,4 +88,3 @@ function gameOver(evt) {
 // }
 
 /*---- Runs the game -----*/
-init()

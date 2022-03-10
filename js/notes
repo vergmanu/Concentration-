@@ -50,3 +50,18 @@
 
 
 
+// function shuffle (randomArr) {
+//     let currentIndex =randomArr.length, randomIndex;
+//     while (currentIndex != 0) {
+//         randomIndex = Math.floor(Math.random() * currentIndex);
+//         currentIndex--;
+//         [randomArr[currentIndex], randomArr[randomIndex]] = [
+//             randomArr[randomIndex], randomArr[currentIndex]];
+//     }
+//     return randomArr;
+// }
+// let squares = ['pink', 'rust', 'blue', 'green',
+//                 'yellow', 'teal', 'orange', 'purple',
+//                 'pink', 'rust', 'blue', 'green',
+//                 'yellow', 'teal', 'orange', 'purple'];
+// shuffle(squares);

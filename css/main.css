@@ -32,6 +32,7 @@ html, body {
     width: 150px;
     display: inline-block; 
     margin: 0;
+    padding: 90px;
   }
   
 .pink {
@@ -66,6 +67,7 @@ html, body {
 button {
     margin-top: 30px;
     padding: 15px;
+    width: 250px;  
     background-color: pink;
     color: red;
     border-color: red;
