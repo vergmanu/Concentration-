@@ -1,0 +1,52 @@
+
+//  const winCombos = [
+//      [0, 13],
+//      [1, 15],
+//      [2, 9],
+//      [3, 12],
+//      [4, 10],
+//      [5, 14],
+//      [6, 11],
+//      [7, 8],
+//  ]
+
+//function init() {
+    // board = [null, null, null, null, 
+    //          null, null, null, null, 
+    //          null, null, null, null, 
+    //          null, null, null, null]
+//     cardOne = []
+//     winner = null
+//     render()
+// }
+
+//set conditional if no check1 then evt.currentTarget saves element to check1 (toggles to backside)
+// function render () {
+//     if(clickedCombos.length === 2) {
+//         checkWin()
+//     }
+
+    
+    //if there is one check then current target vs clicked is checked
+    //if match take out
+    //if don't toggle back
+    
+    
+// function checkWinner() {
+//         winCombos.forEach((set) => {
+// function checkWin() {
+//     winCombos.forEach(function(combo) {
+//         if( Math.abs(board[combo[0]] + board[combo[1]] === 2 ) {
+//             winner = board[combo[0]]
+//         }  
+//     })
+// }
+
+
+
+/*---- Runs the game -----*/
+// init()
+
+
+
+

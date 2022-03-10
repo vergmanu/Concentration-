@@ -21,6 +21,12 @@ html, body {
     color: rgb(35, 190, 144); 
   }
 
+  h2 {
+    margin-top: 0;
+    margin-bottom: 50px;
+    color: rgba(236, 54, 221, 0.658); 
+  }
+
   .square {
     height: 150px;
     width: 150px;
@@ -72,3 +78,6 @@ button:hover {
     color: pink;
   }
 
+.flipped {
+
+}

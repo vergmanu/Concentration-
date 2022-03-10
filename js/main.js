@@ -1,23 +1,15 @@
 /*----- constants -----*/
-//  const winCombos = [
-//      [0, 13],
-//      [1, 15],
-//      [2, 9],
-//      [3, 12],
-//      [4, 10],
-//      [5, 14],
-//      [6, 11],
-//      [7, 8],
-//  ]
 
 
 /*----- app's state (variables) -----*/
-let board, cardOne, winner
+let board, winner
 
 
 /*----- cached element references -----*/
-//const divEl = document.querySelector('div')
 const buttonEl = document.querySelector('button')
+const cards = document.querySelectorAll('.square')
+const h2El = document.querySelector('h2')
+const divEl = document.getElementById('div')
 
 /*----- event listeners -----*/
 buttonEl.addEventListener('click', function(evt) {
@@ -25,92 +17,80 @@ buttonEl.addEventListener('click', function(evt) {
 })
 
 /*----- functions -----*/
-function shuffle (squaresArray) {
-    let currentIndex = squaresArray.length, randomIndex;
-    while (currentIndex != 0) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex--;
-        [squaresArray[currentIndex], squaresArray[randomIndex]] = [
-            squaresArray[randomIndex], squaresArray[currentIndex]];
-    }
-    return squaresArray;
+function init() {
+    render()
 }
-let squares = ['pink', 'rust', 'blue', 'green',
-                'yellow', 'teal', 'orange', 'purple',
-                'pink', 'rust', 'blue', 'green',
-                'yellow', 'teal', 'orange', 'purple'];
-shuffle(squares);
-console.log(squares);
+
+function render() {
+
+}
+
+// function shuffle (randomArr) {
+//     let currentIndex =randomArr.length, randomIndex;
+//     while (currentIndex != 0) {
+//         randomIndex = Math.floor(Math.random() * currentIndex);
+//         currentIndex--;
+//         [randomArr[currentIndex], randomArr[randomIndex]] = [
+//             randomArr[randomIndex], randomArr[currentIndex]];
+//     }
+//     return randomArr;
+// }
+// let squares = ['pink', 'rust', 'blue', 'green',
+//                 'yellow', 'teal', 'orange', 'purple',
+//                 'pink', 'rust', 'blue', 'green',
+//                 'yellow', 'teal', 'orange', 'purple'];
+// shuffle(squares);
 
 function cardClicked(evt) {
-    // clickedCombos.push(evt.target.id)
-    // console.log(clickedCombos)
-const target = evt.currentTarget;
-target.classList.toggle('backside');
+    const target = evt.currentTarget;
+    target.classList.toggle('backside');
     checkCards(evt); 
-    //target.className = target.className.replace('backside', '');
+    gameOver();
 }
 
-    const checkCards = (evt) => {
-    const cardOne = evt.target;
+function checkCards(evt) {
+    const cardOne = evt.currentTarget;
     cardOne.classList.add("flipped");
     const flippedCards = document.querySelectorAll('.flipped');
-    if(flippedCards.length === 2){
-        if(
-        flippedCards[0].getAttribute("name") === 
-        flippedCards[1].getAttribute("name")
-        ){
-        console.log("match");
-        flippedCards.forEach(card => {
-            card.classList.remove("flipped");
-            card.getElementsByClassName.pointerEvents = "none";
-    } else {
-        console.log ("wrong");
-        flippedCards.forEach(card => {
-            card.classList.remove("flipped");
-        })
+    console.log(flippedCards);
+    if (flippedCards.length === 2) {
+        if (flippedCards[0].classList[1] === flippedCards[1].classList[1]) {
+            h2El.textContent = "You found a match!"
+            //removeFlipped()
+            flippedCards.forEach(card => {
+            card.classList.replace('flipped', 'matched')
+                //card.classList.remove("flipped")
+            //can't click on card anymore
+            //card.getElementsByClassName.pointerEvents = "none"
+            }) 
+        } 
+        else {
+            h2El.textContent = "Try again!"
+            //removeFlipped()
+            flippedCards.forEach(card => {
+                //card.classList.replace('flipped', '')
+                card.classList.remove("flipped")
+                setTimeout(() => card.classList.add('backside'), 500)
+                })
         }
+}}
+
+function gameOver(evt) {
+    const matchedCards = document.querySelectorAll('.matched');
+    console.log(matchedCards);
+    if (matchedCards.length === 16) {
+        h2El.textContent = "YOU WIN!" 
+        //resetGame()
     }
-};
+}
 
-
-
-
-
-
-//function init() {
-    // board = [null, null, null, null, 
-    //          null, null, null, null, 
-    //          null, null, null, null, 
-    //          null, null, null, null]
-//     cardOne = []
-//     winner = null
-//     render()
+// function checkMatch() {
 // }
 
-//set conditional if no check1 then evt.currentTarget saves element to check1 (toggles to backside)
-// function render () {
-//     if(clickedCombos.length === 2) {
-//         checkWin()
-//     }
-
-    
-    //if there is one check then current target vs clicked is checked
-    //if match take out
-    //if don't toggle back
-    
-    
-// function checkWinner() {
-//         winCombos.forEach((set) => {
-// function checkWin() {
-//     winCombos.forEach(function(combo) {
-//         if( Math.abs(board[combo[0]] + board[combo[1]] === 2 ) {
-//             winner = board[combo[0]]
-//         }  
-//     })
+// function removeFlipped() {
+//     flippedCards.forEach(card => {
+//         card.classList.remove("flipped")})
 // }
-
-
 
 /*---- Runs the game -----*/
-// init()
+init()
