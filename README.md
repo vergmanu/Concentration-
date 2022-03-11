@@ -21,4 +21,5 @@ In future versions of this game, I would love to add a shuffle feature and disab
 
 <img width="878" alt="Screen Shot 2022-03-10 at 10 58 38 PM" src="https://user-images.githubusercontent.com/99706973/157820931-8ffd4072-dd1f-46d5-a52e-bba3a1bf64cd.png">
 
-<img width="914" alt="Screen Shot 2022-03-10 at 10 58 24 PM" src="https://user-images.githubusercontent.com/99706973/157820989-f67e597b-7812-4e1b-a03d-cd9ee708991d.png">
+<img width="957" alt="Screen Shot 2022-03-10 at 10 58 16 PM" src="https://user-images.githubusercontent.com/99706973/157821574-a60000a0-b105-4ceb-809f-c2c6d7477935.png">
+
