@@ -18,3 +18,7 @@ https://vergmanu.github.io/Concentration-/
 In future versions of this game, I would love to add a shuffle feature and disable clicks after win/loss. 
 
 <img width="914" alt="Screen Shot 2022-03-10 at 10 58 24 PM" src="https://user-images.githubusercontent.com/99706973/157820826-a290acf3-de6b-4661-96b6-0fd7f3fb6bd4.png">
+
+<img width="878" alt="Screen Shot 2022-03-10 at 10 58 38 PM" src="https://user-images.githubusercontent.com/99706973/157820931-8ffd4072-dd1f-46d5-a52e-bba3a1bf64cd.png">
+
+<img width="914" alt="Screen Shot 2022-03-10 at 10 58 24 PM" src="https://user-images.githubusercontent.com/99706973/157820989-f67e597b-7812-4e1b-a03d-cd9ee708991d.png">
