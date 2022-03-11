@@ -1,90 +1,45 @@
-/*----- constants -----*/
+const h2El = document.querySelector('h2');
+const h3El = document.querySelector('h3'); 
+let playerAttempts = 5;
 
-
-/*----- app's state (variables) -----*/
-let board, winner
-
-
-/*----- cached element references -----*/
-const buttonEl = document.querySelector('button')
-//const cards = document.querySelectorAll('.square')
-const h2El = document.querySelector('h2')
-const divEl = document.getElementById('div')
-
-/*----- event listeners -----*/
-buttonEl.addEventListener('click', function(evt) {
-    init()
-})
-
-/*----- functions -----*/
-function init() {
-    //reset h2 to 0 to empty string
-    //toggle to backside class
-    //shuffle(); 
-}
-
-const cards = document.getElementById('div');
-function shuffle (randomArr) {
-    let currentIndex =randomArr.length, randomIndex;
-    while (currentIndex != 0) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex--;
-        [randomArr[currentIndex], randomArr[randomIndex]] = [
-            randomArr[randomIndex], randomArr[currentIndex]];
-    }
-    return randomArr;
-}
-    shuffle(cards);
-
-function cardClicked(evt) {
-    const target = evt.currentTarget;
+let cards = document.querySelectorAll('.square');
+for (let i = 0; i < cards.length; i++){
+    cards[i].addEventListener('click', function(evt) {
+    target = evt.currentTarget;
     target.classList.toggle('backside');
-    checkCards(evt); 
-    gameOver();
+    checkCards(evt);
+    gameOver(evt);
+})
 }
 
 function checkCards(evt) {
-    const cardOne = evt.currentTarget;
+    let cardOne = evt.currentTarget;
     cardOne.classList.add("flipped");
-    const flippedCards = document.querySelectorAll('.flipped');
-    console.log(flippedCards);
+    let flippedCards = document.querySelectorAll('.flipped');
     if (flippedCards.length === 2) {
-        if (flippedCards[0].classList[1] === flippedCards[1].classList[1]) {
-            h2El.textContent = "You found a match!"
-            //removeFlipped()
+    if (flippedCards[0].classList[1] === flippedCards[1].classList[1]) {
+            h3El.textContent = "You found a match!";
             flippedCards.forEach(card => {
             card.classList.replace('flipped', 'matched')
-                //card.classList.remove("flipped")
-            //can't click on card anymore
-            //card.getElementsByClassName.pointerEvents = "none"
-            }) 
-        } 
-        else {
-            h2El.textContent = "Try again!"
-            //removeFlipped()
+        }) 
+    } else {
+            h3El.textContent = "Try again!";
             flippedCards.forEach(card => {
-                //card.classList.replace('flipped', '')
-                card.classList.remove("flipped")
-                setTimeout(() => card.classList.add('backside'), 500)
-                })
+            card.classList.remove("flipped")
+            setTimeout(() => card.classList.add('backside'), 500)
+            })
+            playerAttempts--;
+            h2El.textContent = "Attempts left: " + playerAttempts; 
         }
 }}
 
-function gameOver(evt) {
-    const matchedCards = document.querySelectorAll('.matched');
-    console.log(matchedCards);
+function gameOver(evt) {        
+    let matchedCards = document.querySelectorAll('.matched');
     if (matchedCards.length === 16) {
-        h2El.textContent = "YOU WIN!" 
-        //resetGame()
+        h2El.textContent = "YOU WIN!";
+        h3El.textContent = ""; 
+    } else if (playerAttempts <= 0) {
+        h2El.textContent ="SORRY! GAME OVER. ";
+        h3El.textContent = "";
     }
 }
-
-// function checkMatch() {
-// }
-
-// function removeFlipped() {
-//     flippedCards.forEach(card => {
-//         card.classList.remove("flipped")})
-// }
-
-/*---- Runs the game -----*/
