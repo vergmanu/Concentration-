@@ -3,6 +3,7 @@
 }
 
 body { 
+  width: 100vw; 
   margin-top: 50px;
   margin-bottom: 50px; 
   font-family: monaco;
@@ -11,7 +12,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  overflow: visible;
+  overflow: auto;
 }
 
 h1 {
@@ -33,16 +34,9 @@ h3 {
   color: gr 
 }
 
-.flex-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-
 .square {
-  height: 15vh;
-  width: 15vh;
+  height: 20vw;
+  width: 20vw;
   display: inline-block; 
 }
 
@@ -84,6 +78,7 @@ button {
   border-color: red;
   border-radius: 5px;
   font-size: 20px;
+  font-family: monaco;
 }
 
 button:hover {
@@ -91,16 +86,13 @@ button:hover {
   color: pink;
 }
 
-@media all and (display-mode: fullscreen) {
-  body{ 
-    width: 100vh; 
-    margin-top: 100px;
-    font-family: monaco; 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    overflow: visible;
+@media only screen and (max-width: 650px) {
+  h1 {
+    font-size: 25px;
+  }
+
+  h2 {
+    font-size: 15px;
   }
 }
+
