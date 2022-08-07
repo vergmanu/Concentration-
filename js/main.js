@@ -4,12 +4,14 @@ let playerAttempts = 5;
 
 let cards = document.querySelectorAll('.square');
 for (let i = 0; i < cards.length; i++){
-    cards[i].addEventListener('click', function(evt) {
+    cards[i].addEventListener('click', flipCards)
+}
+
+function flipCards (evt) {
     target = evt.currentTarget;
     target.classList.toggle('backside');
     checkCards(evt);
     gameOver(evt);
-})
 }
 
 function checkCards(evt) {
@@ -38,8 +40,16 @@ function gameOver(evt) {
     if (matchedCards.length === 16) {
         h2El.textContent = "YOU WIN!";
         h3El.textContent = ""; 
+        noClick()
     } else if (playerAttempts <= 0) {
         h2El.textContent ="SORRY! GAME OVER. ";
         h3El.textContent = "";
+       noClick()
+    }
+}
+
+function noClick() {
+    for (let i = 0; i < cards.length; i++){
+        cards[i].removeEventListener('click', flipCards)
     }
 }
