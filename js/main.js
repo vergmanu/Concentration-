@@ -53,4 +53,3 @@ function noClick() {
         cards[i].removeEventListener('click', flipCards)
     }
 }
-
