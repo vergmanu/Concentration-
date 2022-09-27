@@ -88,7 +88,7 @@ button:hover {
   body {
     width: 95vw;
     height: 75vh; 
-    /* margin-top: 10px; */
+    margin: 0px;
     display: flex;
     justify-content:center;
     padding: 0;  
