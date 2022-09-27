@@ -3,7 +3,7 @@
 }
 
 body { 
-  width: 100vw; 
+  width: 100%; 
   margin-top: 50px;
   margin-bottom: 50px; 
   font-family: monaco;
@@ -16,13 +16,11 @@ body {
 }
 
 h1 {
-  margin-top: 0;
   margin-bottom: 50px;
   color: rgb(35, 190, 144); 
 }
 
 h2 {
-  margin-top: 0;
   margin-bottom: 50px;
   color: rgba(236, 54, 221, 0.658); 
 }
@@ -86,13 +84,31 @@ button:hover {
   color: pink;
 }
 
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 780px) {
+  body {
+    width: 90%; 
+    margin: 30px;
+    padding: 0;  
+  }
+
+  button {
+    width: 150px;  
+    font-size: 15px;
+  }
+
   h1 {
     font-size: 25px;
+    padding: 0; 
+    margin: 10px; 
   }
 
   h2 {
     font-size: 15px;
+    margin: 10px 0 20px 0; 
+  }
+
+  h3 {
+    margin: 10px; 
   }
 }
 
