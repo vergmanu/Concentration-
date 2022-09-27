@@ -86,8 +86,11 @@ button:hover {
 
 @media only screen and (max-width: 780px) {
   body {
-    width: 90%; 
-    margin: 30px;
+    width: 95vw;
+    height: 75vh; 
+    /* margin-top: 10px; */
+    display: flex;
+    justify-content:center;
     padding: 0;  
   }
 
